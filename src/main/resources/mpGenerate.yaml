@@ -115,11 +115,7 @@ strategy:
 #逻辑删除属性名称 默认deleted
   logicDeleteFieldName: deleted
 # 表填充字段
-  tableFillList:
-    - fieldName: creator_id
-      fieldFill: INSERT
-    - fieldName: creator_name
-      fieldFill: INSERT
+  tableFillList: null
 # 启用sql过滤，语法不能支持使用sql过滤表的话，可以考虑关闭此开关.
   enableSqlFilter: true
 
