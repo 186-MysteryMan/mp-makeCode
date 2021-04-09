@@ -1,52 +1,44 @@
-globalConfig :
-#  作者
-  author: guying
-#  是否打开默认打开目录 默认true
-  open: false
-# 开启 Kotlin 模式 默认false
-  kotlin: false
-#  指定生成的主键的ID类型
-  idType: AUTO
-#  时间类型对应策略
+globalConfig:
+  #  作者
+  author: null
+  #  时间类型对应策略
   dateType: ONLY_DATE
-#  是否在xml中添加二级缓存配置
-  enableCache: false
-#  开启 ActiveRecord 模式 默认否
-  activeRecord: false
-#  开启 BaseResultMap
-  baseResultMap: false
-#  开启 baseColumnList
-  baseColumnList: false
-#  开启 swagger2 模式 默认否
-  swagger2: false
-# 生成文件的输出目录【默认 D 盘根目录】
-#  outputDir:
-# 是否覆盖已有文件,默认否
-  fileOverride: false
-#dataSource:
-#  dbType:
-#  url:
-#  driverName:
-#  username:
-#  password:
+  #  开启 swagger2 模式 默认否
+  swagger2: true
+  # 生成文件的输出目录【默认 D 盘根目录】
+  outputDir: src/main/java/
+  # 是否覆盖已有文件,默认否
+  fileOverride: true
+
+  open: false
+
+  serviceName: "%sService"
+
+  serviceImplName: "%sServiceImpl"
+
+dataSource:
+  url: jdbc:mysql://rm-wz9sywwta1e561ahxlo.mysql.rds.aliyuncs.com/cloud_test?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false
+  driverName: com.mysql.jdbc.Driver
+  username: testcloud
+  password: "tt#07h56z#PkJXck"
 packageInfo:
-#  父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-  parent: com.guying
-#  父包模块名
-  moduleName: com
-#  Entity包名
+  #  父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+  parent: com.puer.jingxian
+  #  父包模块名
+  moduleName: schedule
+  #  Entity包名
   entity: entity
-#  Service包名
+  #  Service包名
   service: service
-#   Service Impl包名
+  #   Service Impl包名
   serviceImpl: service.impl
-#  Mapper包名
+  #  Mapper包名
   mapper: mapper
-#   Mapper XML包名
+  #   Mapper XML包名
   xml: mapper.xml
-#  Controller包名
+  #  Controller包名
   controller: controller
-#  路径配置信息
+  #    路径配置信息
   pathInfo:
     entity_path: .\mp\src\main\java\com\model
     service_path: .\mp\src\main\java\com\service
@@ -55,67 +47,68 @@ packageInfo:
     xml_path: .\mp\src\main\java\com\\mapper
     controller_path: .\mp\src\main\java\com\\controller
 strategy:
-# 是否大写命名
+  # 是否大写命名
   isCapitalMode: false
-#是否跳过视图
+  #是否跳过视图
   skipView: false
-#名称转换
+  #名称转换
   nameConvert:
-#  数据库表映射到实体的命名策略
-  naming : no_change
-#数据库表字段映射到实体的命名策略
-# <p>未指定按照 naming 执行</p>
+  #  数据库表映射到实体的命名策略
+  naming : underline_to_camel
+  #数据库表字段映射到实体的命名策略
+  # <p>未指定按照 naming 执行</p>
   columnNaming: null
-# 表前缀
+  # 表前缀
   tablePrefix:
     - t_
-# 字段前缀
+  # 字段前缀
   fieldPrefix: null
-#自定义继承的Entity类全称，带包名
+  #自定义继承的Entity类全称，带包名
   superEntityClass:
-#自定义基础的Entity类，公共字段---数组
-  superEntityColumns:
-#  自定义继承的Mapper类全称，带包名
-  superMapperClass: ConstVal.SUPER_MAPPER_CLASS
-# 自定义继承的Service类全称，带包名
-  superServiceClass: ConstVal.SUPER_SERVICE_CLASS
-# 自定义继承的ServiceImpl类全称，带包名
-  superServiceImplClass: ConstVal.SUPER_SERVICE_IMPL_CLASS
-#自定义继承的Controller类全称，带包名
+  #自定义基础的Entity类，公共字段---数组
+  superEntityColumns: null
+  #  自定义继承的Mapper类全称，带包名
+  superMapperClass: null
+  # 自定义继承的Service类全称，带包名
+  superServiceClass: com.puer.jingxian.common.base.BaseService
+  # 自定义继承的ServiceImpl类全称，带包名
+  superServiceImplClass: com.puer.jingxian.common.base.BaseServiceImpl
+  #自定义继承的Controller类全称，带包名
   superControllerClass:
-# 需要包含的表名，允许正则表达式（与exclude二选一配置）<br/>
-#  当{@link #enableSqlFilter}为true时，正则表达式无效.
-  include: null
-#  需要排除的表名，允许正则表达式<br/>
-#  当{@link #enableSqlFilter}为true时，正则表达式无效.
-  exclude: null
-# 实体是否生成 serialVersionUID
-  entitySerialVersionUID : true
-# 【实体】是否生成字段常量（默认 false）<br>
-# public static final String ID = "test_id";
-  entityColumnConstant : false
-#【实体】是否为构建者模型（默认 false）<br>
-  entityBuilderModel : false
-#【实体】是否为链式模型（默认 false）<br>
-  chainModel : false
-# 【实体】是否为lombok模型（默认 false）<br>
-  entityLombokModel : false
-#  Boolean类型字段是否移除is前缀（默认 false）<br>
-#  比如 : 数据库字段名称 : 'is_xxx',类型为 : tinyint. 在映射实体的时候则会去掉is,在实体类中映射最终结果为 xxx
+  # 需要包含的表名，允许正则表达式（与exclude二选一配置）<br/>
+  #  当{@link #enableSqlFilter}为true时，正则表达式无效.
+  include:
+    - t_label
+  #  需要排除的表名，允许正则表达式<br/>
+  #  当{@link #enableSqlFilter}为true时，正则表达式无效.
+  #  exclude: null
+  # 实体是否生成 serialVersionUID
+  entitySerialVersionUID: true
+  # 【实体】是否生成字段常量（默认 false）<br>
+  # public static final String ID = "test_id";
+  entityColumnConstant: true
+  #【实体】是否为构建者模型（默认 false）<br>
+  entityBuilderModel: false
+  #【实体】是否为链式模型（默认 false）<br>
+  chainModel: false
+  # 【实体】是否为lombok模型（默认 false）<br>
+  entityLombokModel : true
+  #  Boolean类型字段是否移除is前缀（默认 false）<br>
+  #  比如 : 数据库字段名称 : 'is_xxx',类型为 : tinyint. 在映射实体的时候则会去掉is,在实体类中映射最终结果为 xxx
   entityBooleanColumnRemoveIsPrefix: false
-#  生成 <code>@RestController</code> 控制器
+  #  生成 <code>@RestController</code> 控制器
   restControllerStyle: false
-#驼峰转连字符
-#<code>@RequestMapping("/managerUserActionHistory")</code> -> <code>@RequestMapping("/manager-user-action-history")</code>
+  #驼峰转连字符
+  #<code>@RequestMapping("/managerUserActionHistory")</code> -> <code>@RequestMapping("/manager-user-action-history")</code>
   controllerMappingHyphenStyle: false
-# 是否生成实体时，生成字段注解
-  entityTableFieldAnnotationEnable: false
-# 乐观锁属性名称
+  # 是否生成实体时，生成字段注解
+  entityTableFieldAnnotationEnable: true
+  # 乐观锁属性名称
   versionFieldName:
-#逻辑删除属性名称 默认deleted
+  #逻辑删除属性名称 默认deleted
   logicDeleteFieldName: deleted
-# 表填充字段
+  # 表填充字段
   tableFillList: null
-# 启用sql过滤，语法不能支持使用sql过滤表的话，可以考虑关闭此开关.
+  # 启用sql过滤，语法不能支持使用sql过滤表的话，可以考虑关闭此开关.
   enableSqlFilter: true
 

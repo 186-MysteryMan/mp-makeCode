@@ -1,7 +1,10 @@
 package com.guying.generate;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.TemplateConfig;
+import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
@@ -18,6 +21,8 @@ import org.yaml.snakeyaml.introspector.BeanAccess;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,6 +56,11 @@ public class MpCodeGeneratorMojo extends AbstractMojo {
             Yaml yaml = new Yaml();
             yaml.setBeanAccess(BeanAccess.FIELD);
             AutoGenerator generator = yaml.loadAs(inputStream, AutoGenerator.class);
+            StrategyConfig strategy = generator.getStrategy();
+            List<TableFill> tableFillList = new ArrayList<>();
+            tableFillList.add(new TableFill("creator_id", FieldFill.INSERT));
+            tableFillList.add(new TableFill("creator_name", FieldFill.INSERT));
+            strategy.setTableFillList(tableFillList);
             generator.execute();
         }catch (Exception e){
             logger.error("读取配置文件异常,异常信息:{}",e.getMessage(),e);
