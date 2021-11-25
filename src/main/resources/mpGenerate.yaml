@@ -17,10 +17,10 @@ globalConfig:
   serviceImplName: "%sServiceImpl"
 
 dataSource:
-  url: jdbc:mysql://rm-wz9sywwta1e561ahxlo.mysql.rds.aliyuncs.com/cloud_test?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false
+  url:
   driverName: com.mysql.jdbc.Driver
-  username: testcloud
-  password: "tt#07h56z#PkJXck"
+  username:
+  password:
 packageInfo:
   #  父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
   parent: com.puer.jingxian

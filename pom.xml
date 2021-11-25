@@ -74,19 +74,6 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-    <distributionManagement>
-<!--        <repository>-->
-<!--            <name>普尔私有仓库</name>-->
-<!--            <id>puer-releases</id>-->
-<!--            <url>https://repo.rdc.aliyun.com/repository/132357-release-f8iXrA/</url>-->
-<!--        </repository>-->
-
-        <repository>
-            <name>普尔私有仓库</name>
-            <id>puer-snapshots</id>
-            <url>https://repo.rdc.aliyun.com/repository/132357-snapshot-rfhWpS/</url>
-        </repository>
-    </distributionManagement>
     <build>
         <plugins>
             <plugin>
