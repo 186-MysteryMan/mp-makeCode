@@ -38,6 +38,7 @@ public class MpCodeGeneratorMojo extends AbstractMojo {
     @Parameter(property = "configuration.file")
     private String configurationFile;
 
+    @Override
     public void execute() {
         logger.info("------------------开始执行-----------------------");
         InputStream inputStream = null;
